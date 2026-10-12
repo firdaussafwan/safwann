@@ -3,7 +3,8 @@ import logo from "./logo.png";
 // import creator from "./creator.png";
 // import mobile from "./mobile.png";
 // import web from "./web.png";
-import github from "./github.png";
+// import github from "./github.png";
+import github from "./youtube.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
@@ -45,6 +46,7 @@ import unity from "./tech/unity.png";
 import smk from "./company/smk.png";
 import uitm from "./company/uitm.png";
 import tamarix from "./company/tamarix.png";
+import inspilogix from "./company/inspilogix.png";
 
 import carrent from "./carrent.png";
 // import jobit from "./jobit.png";
@@ -106,4 +108,5 @@ export {
   php,
   sql,
   unity,
+  inspilogix,
 };

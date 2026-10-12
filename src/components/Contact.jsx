@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
@@ -18,8 +17,7 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    const { target } = e;
-    const { name, value } = target;
+    const { name, value } = e.target;
 
     setForm({
       ...form,
@@ -27,55 +25,36 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-      //template_tuancvi
-      //service_snyglh6
-      //RjLrEBN7qkQ8g2Tww
-      //oVaT0KnFEPWVhYXRPltZo
+    // const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+    const API_URL = import.meta.env.VITE_API_URL || "https://safwan.onespark.cloud";
+    
+    try {
+      // const res = await fetch(`${API_URL}/api/contact`, {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify(form),
+      // });
 
-    emailjs
-      .send(
-        // 'service_snyglh6',
-        // 'template_tuancvi',
-        // import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        // import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        'service_snyglh6',
-        'template_47uhc7v',
-        
-        {
-          from_name: form.name,
-          to_name: "Firdaus Safwan",
-          from_email: form.email,
-          to_email: "firdaus3530@gmail.com",
-          message: form.message,
-        },
-        // 'RjLrEBN7qkQ8g2Tww'
-        // import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
-        'RjLrEBN7qkQ8g2Tww'
+      const res = await fetch("/contact.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
 
+      if (!res.ok) throw new Error("Request failed");
 
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
-
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-
-          alert("Sorry, something went wrong. Please try again.");
-        }
-      );
+      alert("Thank you. I will get back to you as soon as possible.");
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error(error);
+      alert("Sorry, something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -102,6 +81,7 @@ const Contact = () => {
               value={form.name}
               onChange={handleChange}
               placeholder="Name"
+              required
               className='bg-[#fecaca] py-4 px-6 placeholder:text-[#737373] text-white rounded-lg outline-none border-none font-medium'
             />
           </label>
@@ -113,6 +93,7 @@ const Contact = () => {
               value={form.email}
               onChange={handleChange}
               placeholder="Email Address"
+              required
               className='bg-[#fecaca] py-4 px-6 placeholder:text-[#737373] text-white rounded-lg outline-none border-none font-medium'
             />
           </label>
@@ -124,12 +105,14 @@ const Contact = () => {
               value={form.message}
               onChange={handleChange}
               placeholder='Your Message'
+              required
               className='bg-[#fecaca] py-4 px-6 placeholder:text-[#737373] text-white rounded-lg outline-none border-none font-medium'
             />
           </label>
 
           <button
             type='submit'
+            disabled={loading}
             className='bg-[#b91c1c] py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
           >
             {loading ? "Sending..." : "Send"}

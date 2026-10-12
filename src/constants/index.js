@@ -44,6 +44,7 @@ import {
     sql,
     unity,
     bootstrap,
+    inspilogix
 
   } from "../assets";
   
@@ -163,6 +164,7 @@ import {
   ];
   
   const experiences = [
+
     {
       title: "Sekolah Menengah Kebangsaan (SMK) Seri Samudera",
       company_name: "High School",
@@ -231,6 +233,30 @@ import {
         "Handling Reset Password functions",
       ],
     },
+
+    {
+      title: "Inspilogix Sdn Bhd",
+      company_name: "System Developer",
+      icon: inspilogix,
+      iconBg: "#E6DEDD",
+      date: "January 2024 - Present",
+      points: [
+        "Developed Data Protection Officer (DPO) Management Module for Jabatan Perlindungan Data Peribadi (JPDP)",
+        "Implemented company registration, user management and document submission functionalities",
+        "Developed secure administrative workflows with authentication and role-based access control",
+        "Developed Data Breach Notification (DBN) Module for data breach reporting and case management",
+        "Implemented report submission, review, approval and status management workflows",
+        "Developed comments, email notifications and document generation functionalities",
+        "Developed and deployed Attendance Management System (eHadir) for Jabatan Ukur dan Pemetaan Malaysia (JUPEM)",
+        "Implemented employee management, attendance monitoring, reporting and device configuration features",
+        "Integrated attendance devices using SDK for automated data collection and synchronisation",
+        "Enhanced and maintained the official JUPEM Web Portal",
+        "Implemented website facelift, UI/UX improvements and responsive design enhancements",
+        "Developed new portal features and modules to improve system functionality",
+        "Performed bug fixes, code refactoring, performance optimisation and preventive maintenance"
+      ],
+    },
+
   ];
   
   const testimonials = [
@@ -280,7 +306,8 @@ import {
         },
       ],
       image: carrent,
-      source_code_link: "https://drive.google.com/drive/folders/1TBQrlMnRfSolOvRu7xmhF9rs4ug_XI_P?usp=sharing",
+      source_code_link: "https://www.youtube.com/watch?v=w80BfRoYVoE",
+      // source_code_link: "https://drive.google.com/drive/folders/1TBQrlMnRfSolOvRu7xmhF9rs4ug_XI_P?usp=sharing",
     },
   ];
   

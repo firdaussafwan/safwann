@@ -59,7 +59,8 @@ const Navbar = () => {
 
           <li>
             <a
-              href="https://drive.google.com/uc?export=download&id=1sd9FaFbgO6kgUrc14QtESgvF5he9hMMF"
+              // href="https://drive.google.com/uc?export=download&id=1sd9FaFbgO6kgUrc14QtESgvF5he9hMMF"
+              href="https://drive.google.com/uc?export=download&id=1D1IBDy3Shm_0e_AKI_ycgligWyigjvgG"
               className="bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-900 rounded"
             >
               Download Resume
